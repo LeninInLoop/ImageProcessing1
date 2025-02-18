@@ -130,12 +130,6 @@ def main():
     downsampled_images = [downsample_image_by_half(original_image, i) for i in range(1, 6)]
     print("Down-sampled Image(1 Iteration):\n",downsampled_images[0])
 
-    plot_images(
-        original_image=original_image,
-        downsampled_images=downsampled_images,
-        save_path="downsampled_image.png",
-    )
-
     plot_images_by_size(
         original_image=original_image,
         downsampled_images=downsampled_images,
@@ -150,6 +144,13 @@ def main():
         original_image=original_image,
         downsampled_images=upsampled_images,
         save_path="upsampled_image.png",
+    )
+
+    # Plotting in Python sometimes up-samples itself.
+    plot_images(
+        original_image=original_image,
+        downsampled_images=downsampled_images,
+        save_path="downsampled_image.png",
     )
 
     rmse_values = calculate_rmse(original_image, upsampled_images)

@@ -133,7 +133,7 @@ def main():
     plot_images_by_size(
         original_image=original_image,
         downsampled_images=downsampled_images,
-        save_path="downsampled_image_different_sizes.png",
+        save_path="downsampled_images_different_sizes.png",
     )
 
     print(50 * "*")
@@ -143,20 +143,20 @@ def main():
     plot_images(
         original_image=original_image,
         downsampled_images=upsampled_images,
-        save_path="upsampled_image.png",
+        save_path="upsampled_images.png",
     )
 
     # Plotting in Python sometimes up-samples itself.
     plot_images(
         original_image=original_image,
         downsampled_images=downsampled_images,
-        save_path="downsampled_image.png",
+        save_path="downsampled_images.png",
     )
 
     rmse_values = calculate_rmse(original_image, upsampled_images)
     print(50 * "*" + "\n")
     for i, rmse in enumerate(rmse_values, start=1):
-        print(f'RMSE for downsampled image {i}->{downsampled_images[i-1].shape}: {rmse}')
+        print(f'RMSE for downsampled image {i}->{downsampled_images[i-1].shape}: {rmse:.2f}')
 
 
 if __name__ == '__main__':
